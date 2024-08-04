@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb8jo1c6s15vq"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_5qjyo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ltipm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qyytk"]
+load_path = "res://.godot/imported/imgonline-com-ua-pixelizationPnjNZSa2KpnZ.jpg-ae56fdc95b0a5dcbc5c96ceaae30ae83.ctex"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5qjyo")
+
+[node name="play" type="Button" parent="."]
+z_index = 2
+y_sort_enabled = true
+texture_filter = 6
+offset_left = 377.0
+offset_top = 206.0
+offset_right = 747.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 50
+text = "грати"
+
+[node name="settings" type="Button" parent="play"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 113.0
+offset_right = 371.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "налашування"
+
+[node name="Quit" type="Button" parent="play/settings"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 113.0
+offset_right = 371.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "вихід"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="fon menu" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Pixil-frame-0" type="Sprite2D" parent="."]
+position = Vector2(1147.55, 206.875)
+scale = Vector2(-0.071, -0.0125)
+texture = SubResource("CompressedTexture2D_ltipm")
+
+[node name="Imgonline-com-ua-pixelizationPnjNzSa2KpnZ" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(575, 327)
+scale = Vector2(1.43875, 1.22659)
+texture = SubResource("CompressedTexture2D_qyytk")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="play/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="play/settings/Quit" to="." method="_on_quit_pressed"]

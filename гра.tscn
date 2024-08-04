@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://huxyw2tuh3jf"]
+
+[ext_resource type="Script" path="res://гра.gd" id="1_ajcdh"]
+[ext_resource type="PackedScene" uid="uid://8weumvtywuuo" path="res://fish.tscn" id="5_k37kp"]
+[ext_resource type="PackedScene" uid="uid://c4d5pf53jrbxp" path="res://player.tscn" id="6_0qwro"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lpd7k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j1r7y"]
+load_path = "res://.godot/imported/imgonline-com-ua-pixelizationPnjNZSa2KpnZ.jpg-ae56fdc95b0a5dcbc5c96ceaae30ae83.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1vst"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_191950-removebg-preview (1).png-5fc97bb0163cf75381447fe30bcc2a34.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rhpns"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_191933-removebg-preview (1).png-44bb3993a0d885a6dc57d7ea262a1c47.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pnfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_s1vst")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_rhpns")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4k1jc"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_203918-removebg-preview.png-54cf066625ee12a0aa2e50a97bdf9e02.ctex"
+
+[node name="гра" type="Node2D"]
+rotation = -6.28319
+script = ExtResource("1_ajcdh")
+metadata/_edit_vertical_guides_ = [-172.0]
+
+[node name="nalasht" type="Button" parent="."]
+z_index = 1
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 51.0
+offset_bottom = 38.0
+rotation = -6.28319
+auto_translate = false
+localize_numeral_system = false
+text = "⚙налашування"
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="fon menu" type="ParallaxLayer" parent="ParallaxBackground"]
+rotation = -6.28319
+
+[node name="Pixil-frame-0" type="Sprite2D" parent="."]
+position = Vector2(1147.55, 206.875)
+rotation = -6.28319
+scale = Vector2(-0.071, -0.0125)
+texture = SubResource("CompressedTexture2D_lpd7k")
+
+[node name="Imgonline-com-ua-pixelizationPnjNzSa2KpnZ2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(578.999, 324.003)
+scale = Vector2(1.43938, 1.21255)
+texture = SubResource("CompressedTexture2D_j1r7y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1127, 116.005)
+scale = Vector2(0.404566, 0.376565)
+sprite_frames = SubResource("SpriteFrames_7pnfc")
+animation = &"new_animation"
+frame_progress = 0.958904
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+
+[node name="ппп" type="Button" parent="."]
+offset_left = 1001.0
+offset_top = 3.0
+offset_right = 1127.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 30
+text = "⚙"
+
+[node name="ЗнімокЕкрана2024-05-05203918-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(1052, 115.005)
+scale = Vector2(0.62954, 0.472108)
+texture = SubResource("CompressedTexture2D_4k1jc")
+
+[node name="pets" type="Node2D" parent="."]
+
+[node name="fish" parent="pets" instance=ExtResource("5_k37kp")]
+position = Vector2(925, 75.0041)
+
+[node name="ігрок" type="Node2D" parent="."]
+
+[node name="player" parent="ігрок" instance=ExtResource("6_0qwro")]
+position = Vector2(780.998, 419.003)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[connection signal="pressed" from="nalasht" to="." method="_on_nalasht_pressed"]
+[connection signal="pressed" from="ппп" to="." method="_on_ппп_pressed"]

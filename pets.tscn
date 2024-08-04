@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmhe5ddnalu8k"]
+
+[ext_resource type="Script" path="res://pets.gd" id="1_a3uxv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_28au1"]
+load_path = "res://.godot/imported/istockphoto-1267402977-612x612.jpg-9aa22edcf18a094b48e33e08e8803e09.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tvm0e"]
+load_path = "res://.godot/imported/icons8-grocery-store-50.png-9d567b6f1a5bb1913d65c2479ef4dc35.ctex"
+
+[node name="Nodeі2D" type="Node2D"]
+script = ExtResource("1_a3uxv")
+
+[node name="Istockphoto-1267402977-612x612" type="Sprite2D" parent="."]
+position = Vector2(577, 329.188)
+scale = Vector2(1.88562, 1.38024)
+texture = SubResource("CompressedTexture2D_28au1")
+
+[node name="Icons8-grocery-store-51" type="Sprite2D" parent="."]
+position = Vector2(34, 34)
+scale = Vector2(1.4, 1.4)
+texture = SubResource("CompressedTexture2D_tvm0e")
+
+[node name="sss1" type="Button" parent="."]
+offset_left = 152.0
+offset_top = -1.0
+offset_right = 472.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 50
+text = "структури"
+
+[node name="back1" type="Button" parent="sss1"]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 1.0
+offset_right = 870.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 50
+text = "назад"
+
+[connection signal="pressed" from="sss1" to="." method="_on_sss_1_pressed"]
+[connection signal="pressed" from="sss1/back1" to="." method="_on_back_1_pressed"]

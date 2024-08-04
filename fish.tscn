@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://8weumvtywuuo"]
+
+[ext_resource type="Script" path="res://fish.gd" id="1_41wni"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0e7ps"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_192008-removebg-preview.png-412c2ef09eda553f060bb3f08b80a760.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m7ls"]
+atlas = SubResource("CompressedTexture2D_0e7ps")
+region = Rect2(0, 0, 306, 170)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1vst"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_191950-removebg-preview (1).png-5fc97bb0163cf75381447fe30bcc2a34.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuskp"]
+atlas = SubResource("CompressedTexture2D_s1vst")
+region = Rect2(0, 0, 295, 159)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rhpns"]
+load_path = "res://.godot/imported/Знімок_екрана_2024-05-05_191933-removebg-preview (1).png-44bb3993a0d885a6dc57d7ea262a1c47.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0bw1"]
+atlas = SubResource("CompressedTexture2D_rhpns")
+region = Rect2(0, 0, 285, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5erun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m7ls")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_kuskp")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_q0bw1")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yssa"]
+size = Vector2(295.652, 158.913)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8yw2"]
+radius = 351.733
+
+[node name="fish" type="CharacterBody2D"]
+script = ExtResource("1_41wni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.541176, 0.541176)
+sprite_frames = SubResource("SpriteFrames_5erun")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+scale = Vector2(0.999999, 1)
+shape = SubResource("RectangleShape2D_0yssa")
+
+[node name="detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_w8yw2")
